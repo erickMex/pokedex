@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 var bluebird = require('bluebird');
 
-var YalsController = require('../controllers/yals.controller');
-router.get('/pokedex', YalsController.createReport);
+var pokedexController = require('../controllers/pokedex.controller');
+router.get('/pokedex', pokedexController.createReport);
 
 module.exports = router;

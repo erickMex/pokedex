@@ -2,7 +2,7 @@ var async = require('asyncawait/async');
 var await = require('asyncawait/await');
 var path = require('path');
 
-var Service = require('../services/yals.service');
+var Service = require('../services/pokedex.service');
 
 exports.createReport = async (function (req, res, next) {
   var question = req.query.question ? req.query.question : 'Hi';

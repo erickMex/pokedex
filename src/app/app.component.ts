@@ -40,12 +40,23 @@ export class AppComponent implements OnInit, AfterViewChecked {
   }
 
   enviar() {
-
-    this.pokedex.getRequest(this.mensaje, this.session_id).subscribe((response: any) => {
-      console.log(response);
+    let nvoMensaje = this.mensaje;
+    if(this.mensaje.startsWith("¿")){
+      //console.log(this.mensaje.charAt(0));
+      nvoMensaje = this.mensaje.replace("¿","");
+    }
+    if(this.mensaje.endsWith("?")){
+      nvoMensaje = this.mensaje.replace("?","");
+    }
+    if(this.mensaje.startsWith("¿")&&this.mensaje.endsWith("?")){
+      nvoMensaje = this.mensaje.replace("¿","");
+      nvoMensaje = nvoMensaje.replace("?","");
+    }
+        
+    this.pokedex.getRequest(nvoMensaje, this.session_id).subscribe((response: any) => {
+      //console.log(response);
 
       
-
       this.askQuestions.push({
         texto: response.data.current_response.message,
         isResponse: true
