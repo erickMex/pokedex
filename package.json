@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev": "start npm run startdev && start nodemon app.js"
+    "dev": "start npm run startdev && start nodemon app.js",
+    "postinstall": "ng build "
   },
   "private": true,
   "dependencies": {
