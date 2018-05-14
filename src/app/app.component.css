@@ -1,0 +1,74 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.example-card{
+    width: 70%;
+    height: 75%;
+    margin: 20px;
+}
+.header{
+    width:70%;
+    height: 10%;
+    text-align: center;
+}
+.header img{
+    
+    height: 100%;
+}
+.scrollable{
+    width: 100%;
+    height: 85%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+.input-text{
+    height: 15%;
+}
+.example-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .baseClass{
+      width: 70%;
+      border-radius: 15px;
+      background-color: aquamarine;
+      padding: 10px;
+      margin: 5px;
+  }
+  .question{
+      background-color: #13b8d096;
+      align-self: flex-end;
+      
+  }
+  .response{
+      background-color: #1076798f;
+  }
+  .background{
+      height: 50%;
+      position: absolute;
+      width: 100%;
+      background-color: red;
+      z-index: -1;
+      border-bottom: 5px black solid;
+  }
+  .btnReset{
+    position: absolute;
+    right: 0;
+  }
