@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Angular DIST output folder
-app.use(express.static(path.join(__dirname, '/dist/')));
+app.use(express.static(path.join(__dirname, '/dist/algo')));
 
 // API location
 app.use('/api', api);
