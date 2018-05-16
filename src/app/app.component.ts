@@ -41,16 +41,16 @@ export class AppComponent implements OnInit, AfterViewChecked {
 
   enviar() {
     let nvoMensaje = this.mensaje;
-    if(this.mensaje.startsWith("¿")){
+    if(this.mensaje.startsWith("¿")||this.mensaje.startsWith("¡")){
       //console.log(this.mensaje.charAt(0));
-      nvoMensaje = this.mensaje.replace("¿","");
+      nvoMensaje = this.mensaje.replace(this.mensaje.charAt(0),"");
     }
-    if(this.mensaje.endsWith("?")){
-      nvoMensaje = this.mensaje.replace("?","");
+    if(this.mensaje.endsWith("?")||this.mensaje.endsWith("!")){
+      nvoMensaje = this.mensaje.replace(this.mensaje.charAt(this.mensaje.length-1),"");
     }
-    if(this.mensaje.startsWith("¿")&&this.mensaje.endsWith("?")){
-      nvoMensaje = this.mensaje.replace("¿","");
-      nvoMensaje = nvoMensaje.replace("?","");
+    if((this.mensaje.startsWith("¿")&&this.mensaje.endsWith("?"))||(this.mensaje.startsWith("¡")&&this.mensaje.endsWith("!"))){
+      nvoMensaje = this.mensaje.replace(this.mensaje.charAt(0),"");
+      nvoMensaje = nvoMensaje.replace(nvoMensaje.charAt(nvoMensaje.length-1),"");
     }
     this.escribiendo = true;
     this.pokedex.getRequest(nvoMensaje, this.session_id).subscribe((response: any) => {
@@ -79,6 +79,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
     sessionStorage.removeItem("conversacion");
     sessionStorage.removeItem("session_id");
     this.askQuestions = [];
+    this.escribiendo = false;
   }
   scrollToBottom(): void {
     try {
