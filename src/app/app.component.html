@@ -20,11 +20,17 @@
           <div class="example-form">
             <mat-form-field class="example-full-width">
               <input matInput placeholder="Mensaje" [(ngModel)]= "mensaje" (keyup.enter)="enviar()"> 
-
             </mat-form-field>
             <button mat-fab color="primary" (click)="enviar()" [disabled]= "mensaje == ''">Enviar</button>
           </div>
+          <div style="font-size: 9px; font-style: italic;">
+            <p *ngIf="escribiendo">
+              Escribiendo...
+            </p>
+          </div>
         </div>
         
+        
       </mat-card>
+      
 </div>

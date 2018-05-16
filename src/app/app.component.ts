@@ -12,7 +12,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
   mensaje = "";
-
+  escribiendo: boolean = false;
   askQuestions: any = [
   ];
 
@@ -52,7 +52,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
       nvoMensaje = this.mensaje.replace("¿","");
       nvoMensaje = nvoMensaje.replace("?","");
     }
-        
+    this.escribiendo = true;
     this.pokedex.getRequest(nvoMensaje, this.session_id).subscribe((response: any) => {
       //console.log(response);
 
@@ -62,7 +62,9 @@ export class AppComponent implements OnInit, AfterViewChecked {
         isResponse: true
       });
       sessionStorage.setItem("conversacion", JSON.stringify(this.askQuestions));
+      this.escribiendo = false;
     });
+    
 
     this.askQuestions.push({
       texto: this.mensaje,
